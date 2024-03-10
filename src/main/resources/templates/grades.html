@@ -21,18 +21,11 @@
                 <th>Subject</th>
                 <th>Score</th>
             </tr>
-            <!-- Uso de variables expressions -->
-            <!-- <tr>
+
+            <tr th:each="grade: ${grades}">
                 <td th:text="${grade.name}"></td>
                 <td th:text="${grade.subject}"></td>
                 <td th:text="${grade.score}"></td>
-            </tr> -->
-
-            <!-- Uso de selection expressions haciendo el enlace (bind) con el objeto -->
-            <tr th:object="${grade}">
-                <td th:text="*{name}"></td>
-                <td th:text="*{subject}"></td>
-                <td th:text="*{score}"></td>
             </tr>
         </table>
 
