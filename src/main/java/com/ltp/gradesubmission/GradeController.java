@@ -23,6 +23,13 @@ public class GradeController {
         return "grades";
     }
 
+    @GetMapping("/")
+    public String getForm(Model model){
+        model.addAttribute("grade", new Grade());
+        return "form";
+    }
+    
+
     
     
 }

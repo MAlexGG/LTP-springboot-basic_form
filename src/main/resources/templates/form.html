@@ -10,23 +10,23 @@
 
 <body>
     <nav class="ct-nav">
-        <a th:href="@{/form}">Form</a>
+        <a th:href="@{/}">Form</a>
         <a th:href="@{/grades}">Grades</a>
     </nav>
-    <section>
+    <section class="ct-form">
         <h2>Grade Portal</h2>
-        <form action="" method="post">
+        <form action="" method="post" th:object="${grade}">
             <label>
                 Student Name
-                <input type="text" placeholder="Name">
+                <input type="text" placeholder="Name..." th:field="*{name}">
             </label>
             <label>
                 Score
-                <input type="text" placeholder="Score">
+                <input type="text" placeholder="Score..." th:field="*{score}">
             </label>
             <label>
                 Subject
-                <input type="text" placeholder="Subject">
+                <input type="text" placeholder="Subject..." th:field="*{subject}">
             </label>
             <input type="submit" value="Submit">
         </form>
