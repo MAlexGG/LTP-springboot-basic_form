@@ -10,8 +10,8 @@
 
 <body>
     <nav class="ct-nav">
-        <a href="">Form</a>
-        <a href="">Grades</a>
+        <a th:href="@{/form}">Form</a>
+        <a th:href="@{/grades}">Grades</a>
     </nav>
     <section class="ct-grades">
         <h2>Grades</h2>
@@ -21,12 +21,21 @@
                 <th>Subject</th>
                 <th>Score</th>
             </tr>
-            <tr>
+            <!-- Uso de variables expressions -->
+            <!-- <tr>
                 <td th:text="${grade.name}"></td>
                 <td th:text="${grade.subject}"></td>
                 <td th:text="${grade.score}"></td>
+            </tr> -->
+
+            <!-- Uso de selection expressions haciendo el enlace (bind) con el objeto -->
+            <tr th:object="${grade}">
+                <td th:text="*{name}"></td>
+                <td th:text="*{subject}"></td>
+                <td th:text="*{score}"></td>
             </tr>
         </table>
+
     </section>
 
 </body>
