@@ -19,14 +19,17 @@
             <label>
                 Student Name
                 <input type="text" placeholder="Name..." th:field="*{name}">
+                <p class="txt-errors" th:errors="*{name}"></p>
             </label>
             <label>
                 Score
                 <input type="text" placeholder="Score..." th:field="*{score}">
+                <p class="txt-errors" th:errors="*{score}"></p>
             </label>
             <label>
                 Subject
                 <input type="text" placeholder="Subject..." th:field="*{subject}">
+                <p class="txt-errors" th:errors="*{subject}"></p>
             </label>
             <input type="hidden" th:field="*{id}">
             <input type="submit" value="Submit">

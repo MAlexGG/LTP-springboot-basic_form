@@ -86,3 +86,10 @@ input[type=submit]:hover {
     background-color: #ddd;
     color: black;
 }
+
+.txt-errors {
+    margin-top: 0;
+    font-weight: normal;
+    color: tomato;
+    font-size: 14px;
+}
