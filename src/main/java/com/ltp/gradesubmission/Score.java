@@ -15,5 +15,4 @@ public @interface Score {
     String message() default "Invalid Data";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
-
 }
