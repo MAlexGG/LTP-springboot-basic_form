@@ -2,6 +2,8 @@ package com.ltp.gradesubmission;
 
 import java.util.UUID;
 
+import com.ltp.gradesubmission.validation.Score;
+
 import jakarta.validation.constraints.NotBlank;
 
 public class Grade {
