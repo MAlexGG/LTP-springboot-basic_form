@@ -16,13 +16,6 @@ public class Grade {
     @Score(message = "Score must be a letter grade")
     private String score;
     private String id;
-
-
-    /* public Grade(String name, String subject, String score) {
-        this.name = name;
-        this.subject = subject;
-        this.score = score;
-    } */
     
 
     public Grade() {
