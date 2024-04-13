@@ -24,7 +24,8 @@ public class GradeServiceTest {
     @InjectMocks
     private GradeService gradeService;
 
-    @Test
+    /* Este test es demasiado simple y no testea lógica */
+    @Test 
     public void getGradesFromRepoTest(){
         when(gradeRepository.getGrades()).thenReturn(Arrays.asList(
             new Grade("Harry", "Potions", "C"),
@@ -34,7 +35,20 @@ public class GradeServiceTest {
         List<Grade> result = gradeService.getGrades();
 
         assertEquals("Harry", result.get(0).getName());
-        assertEquals("Maths", result.get(1).getSubject());
-        
+        assertEquals("Maths", result.get(1).getSubject());   
+    }
+
+    /* Es mejor testear métodos que contengan lógica como getGradeIndex */
+
+    @Test
+    public void gradeIndexText(){
+        Grade grade = new Grade("Harry", "Potions", "C");
+        when(gradeRepository.getGrades()).thenReturn(Arrays.asList(grade));
+
+       int valid = gradeService.getGradeIndex(grade.getId());
+       int notFound = gradeService.getGradeIndex("123");
+
+       assertEquals(0, valid);
+       assertEquals(Constants.NOT_FOUND, notFound);
     }
 }
