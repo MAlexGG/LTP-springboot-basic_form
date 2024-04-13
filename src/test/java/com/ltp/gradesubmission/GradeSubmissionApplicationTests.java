@@ -31,7 +31,38 @@ class GradeSubmissionApplicationTests {
 		.andExpect(status().is2xxSuccessful())
 		.andExpect(view().name("form"))
 		.andExpect(model().attributeExists("grade"));
-
 	}
 
+	@Test
+	public void testSuccessfulSubmission() throws Exception{
+		RequestBuilder request = MockMvcRequestBuilders.post("/handleSubmit")
+		.param("name", "Harry")
+		.param("subject", "Potions")
+		.param("score", "B-");
+
+		mockMvc.perform(request)
+		.andExpect(status().is3xxRedirection())
+		.andExpect(redirectedUrl("/grades"));
+	}
+
+	@Test
+	public void testUnsuccessfulSubmition() throws Exception{
+		RequestBuilder request = MockMvcRequestBuilders.post("/handleSubmit")
+		.param("name", "")
+		.param("subject", "")
+		.param("score", "10");
+
+		mockMvc.perform(request)
+		.andExpect(status().is2xxSuccessful())
+		.andExpect(view().name("form"));
+	}
+
+	@Test
+	public void testGetGrades() throws Exception{
+		RequestBuilder request = MockMvcRequestBuilders.get("/grades");
+		mockMvc.perform(request)
+		.andExpect(status().is2xxSuccessful())
+		.andExpect(view().name("grades"))
+		.andExpect(model().attributeExists("grades"));
+	}
 }
