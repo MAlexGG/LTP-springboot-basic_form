@@ -41,7 +41,7 @@ public class GradeServiceTest {
     /* Es mejor testear métodos que contengan lógica como getGradeIndex */
 
     @Test
-    public void gradeIndexText(){
+    public void gradeIndexTest(){
         Grade grade = new Grade("Harry", "Potions", "C");
         when(gradeRepository.getGrades()).thenReturn(Arrays.asList(grade));
 
@@ -50,5 +50,16 @@ public class GradeServiceTest {
 
        assertEquals(0, valid);
        assertEquals(Constants.NOT_FOUND, notFound);
+    }
+
+    @Test
+    public void getGradeByIdTest(){
+        Grade grade = new Grade("Harry", "Potions", "C");
+        when(gradeRepository.getGrades()).thenReturn(Arrays.asList(grade));
+        when(gradeRepository.getGrade(0)).thenReturn(grade);
+
+        Grade result = gradeService.getGradeById(grade.getId());
+
+        assertEquals(grade, result);
     }
 }
