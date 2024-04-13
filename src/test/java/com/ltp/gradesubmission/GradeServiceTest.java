@@ -77,7 +77,6 @@ public class GradeServiceTest {
     public void updateGradeTest(){
         Grade grade = new Grade("Harry", "Potions", "C");
         when(gradeRepository.getGrades()).thenReturn(Arrays.asList(grade));
-        when(gradeRepository.getGrade(0)).thenReturn(grade);
 
         grade.setScore("A");
         gradeService.submitGrade(grade);
